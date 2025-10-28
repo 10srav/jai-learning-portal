@@ -28,7 +28,7 @@ export default function StudyTimer() {
   } = useStore()
 
   const [sessionSubject, setSessionSubject] = useState('general')
-  const intervalRef = useRef<NodeJS.Timeout>()
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     if (isTimerRunning) {
@@ -79,7 +79,7 @@ export default function StudyTimer() {
   const handleReset = () => {
     setIsTimerRunning(false)
     setTimerSeconds(0)
-    toast.info('Timer reset')
+    toast('Timer reset', { icon: 'ℹ️' })
   }
 
   // Calculate progress stats
