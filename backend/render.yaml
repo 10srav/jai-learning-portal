@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: jai-learning-portal-api
+    runtime: node
+    region: oregon # You can change this to your preferred region
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true # Render will generate a secure random value
+      - key: MONGODB_URI
+        sync: false # You'll need to add this manually in Render dashboard
+      - key: PORT
+        value: 5000
+      - key: FRONTEND_URL
+        value: https://jai-learning-portal.vercel.app # Update this with your actual Vercel URL

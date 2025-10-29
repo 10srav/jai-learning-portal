@@ -1,14 +1,11 @@
+'use client'
+
 import './globals.css'
-import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
+import { AuthProvider } from '@/contexts/AuthContext'
 
 const inter = Inter({ subsets: ['latin'] })
-
-export const metadata: Metadata = {
-  title: "Jai's Learning Portal - 10th Standard",
-  description: 'Personal learning portal for Jai to manage studies, tasks, and resources',
-}
 
 export default function RootLayout({
   children,
@@ -17,8 +14,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <title>JAI Learning Portal</title>
+        <meta name="description" content="Interactive learning portal for students" />
+      </head>
       <body className={inter.className}>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
         <Toaster
           position="top-right"
           toastOptions={{
