@@ -124,8 +124,7 @@ const streakSchema = new mongoose.Schema({
   }
 });
 
-// Index for performance
-streakSchema.index({ userId: 1 });
+// Index for performance (userId already indexed by unique: true)
 streakSchema.index({ lastActivityDate: 1 });
 
 // Update the updatedAt timestamp

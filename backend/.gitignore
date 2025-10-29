@@ -3,11 +3,10 @@ node_modules/
 package-lock.json
 yarn.lock
 
-# Environment variables
+# Environment variables - IMPORTANT: Never commit these!
 .env
-.env.local
-.env.development
-.env.production
+.env.*
+!.env.example
 
 # Logs
 logs/

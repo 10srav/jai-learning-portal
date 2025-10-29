@@ -122,8 +122,7 @@ const courseSchema = new mongoose.Schema({
   }
 });
 
-// Index for performance
-courseSchema.index({ courseId: 1 });
+// Index for performance (courseId already indexed by unique: true)
 courseSchema.index({ category: 1 });
 courseSchema.index({ isActive: 1 });
 
